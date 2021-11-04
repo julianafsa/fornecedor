@@ -1,0 +1,37 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: fornecedor
+  datasource:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    leaseRenewalIntervalInSeconds: 1
